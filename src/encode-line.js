@@ -11,24 +11,27 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function encodeLine(str) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  // throw new NotImplementedError('Not implemented');
+  // // remove line with error and write your code here
 
-  // let obj = {};
+  let res = "";
+  let count = 1;
 
-  // for(let i = 0; i < str.length; i++){
-  //   obj.hasOwnProperty(str[i]) ? obj[str[i]]++ : obj[str[i]] = 1;
-  // }
-  //  let res = "";
-  //  for(let key in obj){
+  for(let i = 0; i < str.length; i++){
 
-  //   if(obj[key] === 1){
-  //     res += key;
-  //   }else{
-  //     res += obj[key] + key
-  //   }
-  //  }
-  //  return res;
+
+    if(str[i] === str[i+1]){
+      console.log("count++")
+      count++;
+    }else if(count === 1){
+            console.log("push")
+      res += str[i];
+    }else{
+      res += count + str[i];
+      count = 1;
+    }
+  }
+   return res;
 }
 
 module.exports = {
